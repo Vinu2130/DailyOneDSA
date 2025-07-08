@@ -1,5 +1,5 @@
 # Date : 07/07/2025 
-# Problem : selection sort 
+# Problem : Insertion sort 
 # complexity : O(n^2)
 
 def InsertionSort(arr):
@@ -10,6 +10,7 @@ def InsertionSort(arr):
             j-=1
         # print(arr)
     return arr
+
 arr = [1,3,5,2,4,8,10,9]
 
 print(f"Array elements before sorting : {arr}")
