@@ -10,7 +10,7 @@ def SelectionSort(arr):
                 currentMinIndex = j
         if currentMinIndex != i:
             arr[currentMinIndex],arr[i] = arr[i],arr[currentMinIndex]
-        print(arr)
+        # print(arr)
     return arr
 
 arr = [1,3,5,2,4,8,10,9]
