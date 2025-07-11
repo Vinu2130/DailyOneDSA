@@ -2,27 +2,32 @@
 # Problem : Radix sort 
 # complexity : O(d(n+b)) (d = no.of digits in max number in given data, n = no.of elements, b = buckets )
 
-def RadixSort(arr):
-    # step-1 : initially we need to find maximum number
+def find_max(arr):
     maxNum = arr[0]
     for i in arr:
         if i >= maxNum:
             maxNum = i
-    
-    # step-2 : find number of digits in that max number
+    return maxNum
+            
+def count_digits(maxNum):
     d = 0
     while maxNum > 0:
         maxNum //= 10
         d+=1
-    print(d)
+    return d
+    
+def RadixSort(arr):
+    # step-1 : initially we need to find maximum number
+    maxNum  = find_max(arr)
+    
+    # step-2 : find number of digits in that max number
+    d = count_digits(maxNum)
     
     # step-3 : we need to sort all numbers, digit-wise
     for i in range(d):
         # step-3a: create temporary buckets for every pass
-        radixDict = {}
-        for k in range(10):
-            radixDict[k] = []
-        
+        radixDict = {k : [] for k in range(10)}
+
         # step-3b: inserting each element from array in their respective buckets for every pass
         for j in range(len(arr)):
             digit = (arr[j] // (10**i) )%10
