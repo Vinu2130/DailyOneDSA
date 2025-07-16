@@ -73,19 +73,96 @@ class SinglyLinkedList:
         count = 2
         temp = self.head
         while count < pos:
-            print(temp.data, count)
+            # print(temp.data, count)
             count += 1
             temp = temp.next
             
         newNode.next = temp.next
         temp.next = newNode
-        return self.head
+        # return self.head
     
-    
-        
+    # Deletion Operations
+    def deleteAtBeginning(self):
+        # newNode = Node(k)
+        if self.head == None:
+            return f"There is no element present in given linkedlist"
+        deletedNode = self.head
+        self.head = self.head.next 
+        deletedNode.next = None
       
+        return deletedNode.data
+    
+    def deleteAtEnd(self):
+        # newNode = Node(k)
+        if self.head == None:
+            return f"There is no element present in given linkedlist"
+        elif self.head.next == None:
+            deletedNode = self.head
+            self.head = None
+            return deletedNode.data
+        temp = self.head
+        while temp.next.next != None:
+            temp = temp.next
+        deletedNode = temp.next
+        temp.next = None
+        return deletedNode.data
+    
+    def deleteAtPosition(self, pos):
+        # newNode = Node(k)
+        noOfElements = self.countElements() 
+        # print(noOfElements)
+        if noOfElements == 0 or pos > noOfElements or pos <= 0:
+            return f"None"    
+   
+        if pos==1 :
+            return self.deleteAtBeginning()
+            
+       
+        elif pos == noOfElements:
+            return self.deleteAtEnd()
+       
         
+        count = 2
+        temp = self.head
+        while count < pos:
+            # print(temp.data, count)
+            count += 1
+            temp = temp.next
+        deletedNode = temp.next 
+        temp.next = temp.next.next
+       
+        return deletedNode.data
+    
+    # Modify element
+    def updateAtPosition(self,pos,k):
+        noOfElements = self.countElements() 
+        # print(pos,k)
+        if noOfElements == 0 or pos > noOfElements or pos <= 0:
+            print(f"invalid position for updation: {pos}"  )
+            return
+        count = 1
+        temp = self.head
+        # print(self.head)
+        while count!=pos:
+            # print(temp.data)
+            temp = temp.next
+            count+=1
+            
+        temp.data = k
+    
+    # Reverse SLL
+    def reverseSLL(self):
+        prev = None
+        temp = self.head
+        # self.head.next = None
+        while temp:
+            next = temp.next
+            temp.next = prev
+            prev = temp
+            temp = next
         
+        self.head = prev
+            
 
 # create single linked list : 0->1->2->3->4
 head = Node(0)
@@ -107,6 +184,13 @@ sll.insertAtBeginning(6)
 sll.insertAtBeginning(7)
 sll.insertAtEnd(8)
 sll.insertAtPostion(10,10)
-# sll.traversal()
+sll.traversal()
 # print(sll.countElements())
+# pos = 2
+
+# print(f"Delete Node at position {pos}: {sll.deleteAtPosition(pos)}")
+# print("updating position {pos} with {newData}: ")
+# sll.updateAtPosition(32,21)
+sll.reverseSLL()
+sll.traversal()
     
