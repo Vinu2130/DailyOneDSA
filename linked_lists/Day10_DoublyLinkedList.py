@@ -19,6 +19,7 @@ class DoublyLinkedList:
         self.head.prev = newNode
         self.head = newNode
         return self.head
+    
     def traversal(self,node = None):
         node = node or self.head
         current = node 
@@ -27,6 +28,17 @@ class DoublyLinkedList:
             print(f"{current.data} <-> ", end = "")
             current = current.next
         print("None")
+    
+    def countElements(self):
+        count = 0
+        current  = self.head
+        while current:
+            count += 1
+            current = current.next
+       
+        return count
+    
+   
         
         
     
@@ -35,6 +47,7 @@ dll = DoublyLinkedList(head)
 for i in range(5):
     dll.insertAtBeginning(i)
 dll.traversal()
+print(dll.countElements())
     
         
         
