@@ -113,15 +113,11 @@ class SinglyLinkedList:
         # print(noOfElements)
         if noOfElements == 0 or pos > noOfElements or pos <= 0:
             return f"None"    
-   
         if pos==1 :
             return self.deleteAtBeginning()
             
-       
         elif pos == noOfElements:
             return self.deleteAtEnd()
-       
-        
         count = 2
         temp = self.head
         while count < pos:
