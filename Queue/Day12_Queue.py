@@ -3,42 +3,37 @@
 
 '''
 Queue is a linear data structure that follows FIFO (First In First Out) Principle, so the first element inserted is the first to be popped out.
+
+# elements addition should be done from front end and removal should be done from rear end
+
+lets take index 0 as front and last index as rear ends
+
+enqueue : insert into queue, (assume push)
+dequeue : remove from queue, (assume pull)
 '''
 
 
 class Queue:
-    def __init__(self,arr):
-        self.size = len(arr)
-        if self.size == 0:
-            self.front = None
-            self.rear = None
-        self.front = self.size - 1
-        self.rear = 0
-        
+    def __init__(self):
+        self.q = [] 
     def push(self,k):
-        if self.front == None and self.rear == None:
-            arr[0] = k
-            self.front = k
-            self.rear = k
-        else:
-            arr.append(k)
-            self.front = k
+        self.q.append(k)       
     def pull(self):
-        arr.remove(self.front)
-        self.front = self.size - 1
-        return self.front
+        self.q.remove(self.q[0])
     def getHead(self):
-        return self.front
+        return self.q[0]
     def getTail(self):
-        return self.rear
+        return self.q[len(self.q)-1]
     
 
-arr = [1,2,3,4,5]
-q = Queue(arr)
-q.push(6)
-q.push(7)
-q.push(8)
-print(q.pull())
-print(arr)
-print(q.getHead())
-print(q.getTail())
+q1 = Queue()
+print(q1.q)
+q1.push(1)
+q1.push(2)
+q1.push(3)
+print(q1.q)
+print(q1.getHead())
+q1.pull()
+print(q1.q)
+print(q1.getHead())
+print(q1.getTail())
