@@ -12,7 +12,7 @@ enqueue : insert into queue, (assume push)
 dequeue : remove from queue, (assume pull)
 '''
 
-
+# Simple Array Implementation Of Queue
 class Queue:
     def __init__(self):
         self.q = [] 
@@ -24,6 +24,8 @@ class Queue:
         return self.q[0]
     def getTail(self):
         return self.q[len(self.q)-1]
+    def is_empty(self):
+        return (len(self.q)) == 0
     
 
 q1 = Queue()
@@ -37,3 +39,4 @@ q1.pull()
 print(q1.q)
 print(q1.getHead())
 print(q1.getTail())
+print(q1.is_empty())
