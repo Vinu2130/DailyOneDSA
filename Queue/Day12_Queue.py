@@ -8,8 +8,8 @@ Queue is a linear data structure that follows FIFO (First In First Out) Principl
 
 lets take index 0 as front and last index as rear ends
 
-enqueue : insert into queue, (assume push)
-dequeue : remove from queue, (assume pull)
+enqueue : insert into queue, (assume push),complexity is O(1)
+dequeue : remove from queue, (assume pull),complexity is O(n)
 '''
 
 # Simple Array Implementation Of Queue
