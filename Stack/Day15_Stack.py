@@ -38,7 +38,7 @@ class Stack:
         return self.top == -1
     def displayStack(self):
         # print(self.top)
-        print(self.is_empty())
+        # print(self.is_empty())
         if self.is_empty():
             print("|_____|")
             return
