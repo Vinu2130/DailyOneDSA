@@ -32,7 +32,7 @@ class LL_Queue:
             return deletedNode.data
         deletedNode = self.front
         self.front = self.front.next
-        return deletedNode
+        return deletedNode.data
     def displayQ(self):
         temp = self.front
         while temp:
