@@ -21,14 +21,19 @@ class Queue:
     def pull(self):
         self.q.remove(self.q[0])
     def getHead(self):
+        if self.is_empty():
+            return "Queue is Empty"
         return self.q[0]
     def getTail(self):
+        if self.is_empty():
+            return "Queue is Empty"
         return self.q[len(self.q)-1]
     def is_empty(self):
         return (len(self.q)) == 0
     
 
 q1 = Queue()
+# print(q1.getHead())
 print(q1.q)
 q1.push(1)
 q1.push(2)
