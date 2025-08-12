@@ -20,6 +20,19 @@ class BinaryTree:
             print(node.data, end = " ")
             self.PreOrder(node.left)
             self.PreOrder(node.right)
+        # print()
+    def PostOrder(self,node):
+        if node:
+            self.PostOrder(node.left)
+            self.PostOrder(node.right)
+            print(node.data, end = " ")
+        # print()
+    def InOrder(self,node):
+        if node:
+            self.InOrder(node.left)
+            print(node.data, end = " ")
+            self.InOrder(node.right)
+        # print()
 
       
 
@@ -28,7 +41,12 @@ myBT = BinaryTree(4)
 myBT.insertLeft(myBT.root,3)
 myBT.insertRight(myBT.root,5)
 myBT.insertLeft(myBT.root.left,2)
+print("PreOrder Traversal: ")
 myBT.PreOrder(myBT.root)
+print("\nPostOrder Traversal: ")
+myBT.PostOrder(myBT.root)
+print("\nInOrder Traversal: ")
+myBT.InOrder(myBT.root)
 
 
 
